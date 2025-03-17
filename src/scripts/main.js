@@ -360,8 +360,14 @@ console.log(people); // you can remove it
 // write your code here
 const table = document.querySelector('.dashboard');
 
-people.forEach(person => {
+people.forEach((person) => {
   const tr = document.createElement('tr');
+
+  if (person.sex === 'm') {
+    person.sex = 'Male';
+  } else {
+    person.sex = 'Female';
+  }
 
   tr.innerHTML = `
     <td>${person.name}</td>
