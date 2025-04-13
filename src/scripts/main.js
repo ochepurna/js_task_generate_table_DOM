@@ -359,15 +359,12 @@ console.log(people); // you can remove it
 
 // write your code here
 const table = document.querySelector('.dashboard');
+const tbody = document.createElement('tbody');
 
 people.forEach((person) => {
   const tr = document.createElement('tr');
 
-  if (person.sex === 'm') {
-    person.sex = 'Male';
-  } else {
-    person.sex = 'Female';
-  }
+  person.sex = person.sex === 'm' ? 'Male' : 'Female';
 
   tr.innerHTML = `
     <td>${person.name}</td>
@@ -378,5 +375,7 @@ people.forEach((person) => {
     <td>${Math.ceil(person.died / 100)}</td>
   `;
 
-  table.append(tr);
+  tbody.append(tr);
 });
+
+table.append(tbody);
